@@ -89,10 +89,11 @@ nav ul li a:hover {
     width: 100%;
     position: relative;
     margin: 2rem auto;
-    height: 400px;
+    height: 500px; /* Increased height to fit more text */
     background: rgba(0, 0, 0, 0.8);
-    border: none;
-    z-index: 1; /* Explicitly lower than nav */
+    border: 2px solid #ff8c00;
+    z-index: 1;
+    overflow-y: auto; /* Allow scrolling if text overflows */
 }
 
 .slide {
@@ -104,17 +105,18 @@ nav ul li a:hover {
 
 .text {
     color: #ff8c00;
-    font-size: 2rem;
-    padding: 8px 12px;
+    font-size: 1.2rem; /* Reduced font size for readability */
+    padding: 10px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    text-align: center;
+    text-align: left; /* Changed to left-align for longer text */
     background: rgba(255, 255, 255, 0.9);
     border-radius: 5px;
     width: 90%;
-    max-width: 500px;
+    max-width: 800px; /* Wider to fit full content */
+    line-height: 1.4; /* Improved readability */
 }
 
 .fade {
@@ -202,12 +204,12 @@ footer p {
     }
 
     .slideshow-container {
-        height: 250px;
+        height: 400px;
     }
 
     .text {
-        font-size: 1.5rem;
-        padding: 6px 10px;
+        font-size: 1rem;
+        padding: 8px;
     }
 
     .content h1 {
@@ -233,11 +235,11 @@ footer p {
     }
 
     .slideshow-container {
-        height: 200px;
+        height: 350px;
     }
 
     .text {
-        font-size: 1.2rem;
+        font-size: 0.9rem;
     }
 
     .content h1 {
