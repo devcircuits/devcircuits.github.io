@@ -9,6 +9,7 @@ body {
     background: white url('circuit-bg.png') repeat;
     color: #000;
     line-height: 1.6;
+    min-height: 100vh; /* Ensure body takes full height */
 }
 
 header {
@@ -17,23 +18,27 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
 }
 
 .logo img {
     height: 50px;
+    max-width: 100%; /* Prevent overflow */
 }
 
 nav ul {
     list-style: none;
     display: flex;
+    flex-wrap: wrap; /* Allow nav items to wrap */
 }
 
 nav ul li {
-    margin-right: 2rem;
+    margin-right: 1rem; /* Reduced for smaller screens */
+    margin-bottom: 0.5rem; /* Space between wrapped items */
 }
 
 nav ul li a {
-    color: #ff8c00; /* Lighter orange */
+    color: #ff8c00;
     text-decoration: none;
     font-size: 1.1rem;
 }
@@ -44,11 +49,12 @@ nav ul li a:hover {
 
 .slideshow-container {
     max-width: 1000px;
+    width: 100%; /* Full width on all screens */
     position: relative;
     margin: 2rem auto;
-    height: 400px;
+    height: 400px; /* Default height */
     background: rgba(0, 0, 0, 0.8);
-    border: 2px solid #ff8c00; /* Lighter orange */
+    border:.ConcurrentHashMap 2px solid #ff8c00;
 }
 
 .slide {
@@ -59,7 +65,7 @@ nav ul li a:hover {
 }
 
 .text {
-    color: #ff8c00; /* Lighter orange */
+    color: #ff8c00;
     font-size: 2rem;
     padding: 8px 12px;
     position: absolute;
@@ -69,6 +75,8 @@ nav ul li a:hover {
     text-align: center;
     background: rgba(255, 255, 255, 0.9);
     border-radius: 5px;
+    width: 90%; /* Prevent text overflow */
+    max-width: 500px; /* Cap width for readability */
 }
 
 .fade {
@@ -82,6 +90,7 @@ nav ul li a:hover {
 
 .content {
     max-width: 800px;
+    width: 90%; /* Flexible width */
     margin: 2rem auto;
     padding: 2rem;
     background: rgba(255, 255, 255, 0.9);
@@ -91,10 +100,11 @@ nav ul li a:hover {
 .content h1 {
     color: #000;
     margin-bottom: 1rem;
+    font-size: 2rem; /* Default size */
 }
 
 .content h2 {
-    color: #ff8c00; /* Lighter orange for subheadings */
+    color: #ff8c00;
     margin: 1.5rem 0 1rem;
     font-size: 1.5rem;
 }
@@ -112,11 +122,77 @@ footer {
     text-align: center;
     padding: 1rem;
     color: #000;
-    position: fixed;
-    bottom: 0;
     width: 100%;
+    background: rgba(255, 255, 255, 0.9); /* Slight background to avoid overlap */
+    position: relative; /* Changed from fixed to avoid covering content */
 }
 
 footer p {
     font-size: 0.9rem;
+}
+
+/* Media Queries for Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column; /* Stack logo and nav vertically */
+        align-items: flex-start;
+    }
+
+    nav ul {
+        flex-direction: column; /* Stack nav items */
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    nav ul li {
+        margin-right: 0;
+        margin-bottom: 0.5rem;
+    }
+
+    .slideshow-container {
+        height: 250px; /* Reduce height for smaller screens */
+    }
+
+    .text {
+        font-size: 1.5rem; /* Smaller text */
+        padding: 6px 10px;
+    }
+
+    .content h1 {
+        font-size: 1.5rem; /* Smaller heading */
+    }
+
+    .content h2 {
+        font-size: 1.2rem; /* Smaller subheading */
+    }
+
+    .content {
+        padding: 1rem; /* Less padding */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .logo img {
+        height: 40px; /* Smaller logo */
+    }
+
+    nav ul li a {
+        font-size: 1rem; /* Smaller nav text */
+    }
+
+    .slideshow-container {
+        height: 200px; /* Even smaller for very small screens */
+    }
+
+    .text {
+        font-size: 1.2rem; /* Even smaller text */
+    }
+
+    .content h1 {
+        font-size: 1.2rem;
+    }
+
+    .content h2 {
+        font-size: 1rem;
+    }
 }
