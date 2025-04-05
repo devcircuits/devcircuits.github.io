@@ -92,3 +92,24 @@ footer {
 footer p {
     font-size: 0.9rem;
 }
+.content {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 5px;
+}
+
+.content h1 {
+    color: #000;
+    margin-bottom: 1rem;
+}
+
+.content p, .content ul {
+    margin-bottom: 1rem;
+}
+
+.content ul {
+    list-style: disc;
+    margin-left: 2rem;
+}
