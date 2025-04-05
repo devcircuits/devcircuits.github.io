@@ -33,7 +33,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #ff8c00;
+    color: #ff8c00; /* Lighter orange */
     text-decoration: none;
     font-size: 1.1rem;
 }
@@ -48,7 +48,7 @@ nav ul li a:hover {
     margin: 2rem auto;
     height: 400px;
     background: rgba(0, 0, 0, 0.8);
-    border: 2px solid #ff8c00;
+    border: 2px solid #ff8c00; /* Lighter orange */
 }
 
 .slide {
@@ -59,7 +59,7 @@ nav ul li a:hover {
 }
 
 .text {
-    color: #ff8c00;
+    color: #ff8c00; /* Lighter orange */
     font-size: 2rem;
     padding: 8px 12px;
     position: absolute;
@@ -80,18 +80,6 @@ nav ul li a:hover {
     to {opacity: 1}
 }
 
-footer {
-    text-align: center;
-    padding: 1rem;
-    color: #000;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-
-footer p {
-    font-size: 0.9rem;
-}
 .content {
     max-width: 800px;
     margin: 2rem auto;
@@ -105,6 +93,12 @@ footer p {
     margin-bottom: 1rem;
 }
 
+.content h2 {
+    color: #ff8c00; /* Lighter orange for subheadings */
+    margin: 1.5rem 0 1rem;
+    font-size: 1.5rem;
+}
+
 .content p, .content ul {
     margin-bottom: 1rem;
 }
@@ -112,4 +106,17 @@ footer p {
 .content ul {
     list-style: disc;
     margin-left: 2rem;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    color: #000;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    font-size: 0.9rem;
 }
