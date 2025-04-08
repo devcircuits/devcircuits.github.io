@@ -9,10 +9,10 @@ body {
     background: #ffffff;
     color: #333333;
     line-height: 1.6;
-    min-height: 100vh; /* Full viewport height */
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    padding-bottom: 60px; /* Space for fixed footer */
+    padding-bottom: 60px;
 }
 
 /* Header */
@@ -73,20 +73,21 @@ nav ul li a {
 nav ul li a:hover { color: #e65c00; }
 
 /* Slideshow */
-/* Slideshow */
 .slideshow-container {
     width: 100%;
     height: 80vh;
     position: relative;
     background: #f5f5f5;
-    display: flex; /* Flexbox to align logo and slides */
+    display: flex;
+    flex-direction: row;
+    overflow: hidden; /* Prevent overflow */
 }
 
 .logo-slide {
-    height: 100%; /* Match slideshow height */
-    width: 80vh; /* Width equals height (square) */
-    flex-shrink: 0; /* Prevent shrinking */
-    background: #ffffff; /* White background for logo */
+    height: 100%;
+    width: 80vh; /* Square: width = height */
+    flex-shrink: 0;
+    background: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -95,16 +96,18 @@ nav ul li a:hover { color: #e65c00; }
 .logo-slide img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Ensure logo fits without distortion */
+    object-fit: contain;
 }
 
 .slide {
-    display: none;
-    width: calc(100% - 80vh); /* Remaining width after logo */
+    display: none; /* Hidden by default */
+    width: calc(100% - 80vh); /* Take remaining width */
     height: 100%;
-    position: absolute;
-    top: 0;
-    right: 0; /* Align slides to the right of logo */
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+.slide.active {
+    display: block; /* Show only active slide */
 }
 
 .text {
@@ -119,7 +122,7 @@ nav ul li a:hover { color: #e65c00; }
     background: rgba(255, 255, 255, 0.95);
     border-radius: 8px;
     width: 80%;
-    max-width: 700px; /* Adjusted to fit beside logo */
+    max-width: 700px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -130,7 +133,9 @@ nav ul li a:hover { color: #e65c00; }
     font-weight: 700;
 }
 
-.fade { animation: fade 1s ease-in-out; }
+.fade {
+    animation: fade 1s ease-in-out;
+}
 
 @keyframes fade {
     from { opacity: 0; }
@@ -160,7 +165,7 @@ nav ul li a:hover { color: #e65c00; }
 .dot.active { background: #ff6200; }
 
 /* Content */
-main { flex: 1; } /* Grow to fill space */
+main { flex: 1; }
 
 .content {
     max-width: 1200px;
@@ -264,29 +269,25 @@ footer {
     .nav-toggle:checked ~ nav { transform: translateX(0); }
     .slideshow-container {
         height: 60vh;
-        flex-direction: column; /* Stack logo and slides vertically */
+        flex-direction: column;
     }
     .logo-slide {
-        width: 100%; /* Full width on mobile */
-        height: 20vh; /* Smaller fixed height for logo */
+        width: 100%;
+        height: 20vh;
     }
-
     .slide {
-        width: 100%; /* Full width below logo */
-        height: calc(60vh - 20vh); /* Remaining height */
-        position: relative; /* Adjust for stacking */
-        right: auto;
+        width: 100%;
+        height: calc(60vh - 20vh);
     }
-
     .text {
         font-size: 1rem;
         max-width: 90%;
     }
-
     .text h2 {
         font-size: 1.5rem;
     }
 }
+
 #form-message {
     font-size: 1rem;
     font-weight: 600;
