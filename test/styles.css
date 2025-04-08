@@ -248,3 +248,7 @@ footer {
     .text { font-size: 1rem; }
     .text h2 { font-size: 1.5rem; }
 }
+#form-message {
+    font-size: 1rem;
+    font-weight: 600;
+}
