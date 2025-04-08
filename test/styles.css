@@ -9,6 +9,9 @@ body {
     background: #ffffff;
     color: #333333;
     line-height: 1.6;
+    min-height: 100vh; /* Ensure body takes full height */
+    display: flex;
+    flex-direction: column;
 }
 
 /* Header */
@@ -24,9 +27,7 @@ header {
     z-index: 1000;
 }
 
-.logo img {
-    height: 50px;
-}
+.logo img { height: 50px; }
 
 .nav-toggle { display: none; }
 
@@ -58,9 +59,7 @@ nav ul {
     list-style: none;
 }
 
-nav ul li {
-    margin-right: 2rem;
-}
+nav ul li { margin-right: 2rem; }
 
 nav ul li a {
     color: #ff6200;
@@ -70,9 +69,7 @@ nav ul li a {
     transition: color 0.3s ease;
 }
 
-nav ul li a:hover {
-    color: #e65c00;
-}
+nav ul li a:hover { color: #e65c00; }
 
 /* Slideshow */
 .slideshow-container {
@@ -144,6 +141,8 @@ nav ul li a:hover {
 .dot.active { background: #ff6200; }
 
 /* Content */
+main { flex: 1; } /* Push footer to bottom */
+
 .content {
     max-width: 1200px;
     width: 90%;
@@ -161,6 +160,12 @@ nav ul li a:hover {
     font-weight: 700;
 }
 
+.content h2 {
+    color: #ff6200;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
 .solution-card {
     background: #f5f5f5;
     padding: 1.5rem;
@@ -169,15 +174,44 @@ nav ul li a:hover {
     transition: transform 0.3s ease;
 }
 
-.solution-card:hover {
-    transform: translateY(-5px);
+.solution-card:hover { transform: translateY(-5px); }
+
+/* Contact Form */
+.content form {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
-.solution-card h2 {
-    color: #ff6200;
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
+.content form label {
+    font-weight: 600;
+    color: #333333;
 }
+
+.content form input,
+.content form textarea {
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.content form textarea { resize: vertical; }
+
+.content form button {
+    background: #ff6200;
+    color: #ffffff;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.content form button:hover { background: #e65c00; }
 
 /* Footer */
 footer {
@@ -185,6 +219,9 @@ footer {
     padding: 1rem;
     background: #333333;
     color: #ffffff;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 /* Mobile */

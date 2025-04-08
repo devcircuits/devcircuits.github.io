@@ -30,12 +30,22 @@
     <main>
         <section class="content">
             <h1>Contact Us</h1>
-            <p>Email: info@DEVCircuit.in</p>
+            <p>Email: <a href="mailto:info@devcircuit.in">info@devcircuit.in</a></p>
+            <h2>Leave a Comment</h2>
+            <form action="mailto:support@devcircuit.in" method="post" enctype="text/plain">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="comment">Comment:</label>
+                <textarea id="comment" name="comment" rows="5" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
         </section>
     </main>
 
     <footer>
-        <p>© 2025 DEVCircuit.in. All rights reserved.</p>
+        <p>© 2025 DevCircuit.in. All rights reserved.</p>
     </footer>
 </body>
 </html>
