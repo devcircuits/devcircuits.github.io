@@ -1,39 +1,30 @@
 let slideIndex = 0;
 const slides = document.getElementsByClassName("slide");
-showSlides();
+const dotsContainer = document.querySelector('.dots');
+
+function createDots() {
+    for (let i = 0; i < slides.length; i++) {
+        const dot = document.createElement('span');
+        dot.className = 'dot';
+        dot.addEventListener('click', () => {
+            slideIndex = i;
+            showSlides();
+        });
+        dotsContainer.appendChild(dot);
+    }
+}
 
 function showSlides() {
     for (let i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
+        dotsContainer.children[i].className = "dot";
     }
     slideIndex++;
     if (slideIndex > slides.length) { slideIndex = 1; }
     slides[slideIndex - 1].style.display = "block";
-    setTimeout(showSlides, 10000); // 10 seconds
+    dotsContainer.children[slideIndex - 1].className = "dot active";
+    setTimeout(showSlides, 8000); // 8 seconds
 }
 
-// Manual controls
-document.querySelector('.prev').addEventListener('click', () => {
-    slideIndex -= 2;
-    if (slideIndex < 0) { slideIndex = slides.length - 1; }
-    showSlides();
-});
-
-document.querySelector('.next').addEventListener('click', () => {
-    showSlides();
-});
-
-// Custom cursor
-const cursor = document.createElement('div');
-cursor.className = 'custom-cursor';
-document.body.appendChild(cursor);
-
-document.addEventListener('mousemove', (e) => {
-    cursor.style.left = e.pageX + 'px';
-    cursor.style.top = e.pageY + 'px';
-});
-
-document.querySelectorAll('a, button').forEach(el => {
-    el.addEventListener('mouseover', () => cursor.style.transform = 'scale(1.5)');
-    el.addEventListener('mouseout', () => cursor.style.transform = 'scale(1)');
-});
+createDots();
+showSlides();
