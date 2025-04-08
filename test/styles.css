@@ -73,20 +73,38 @@ nav ul li a {
 nav ul li a:hover { color: #e65c00; }
 
 /* Slideshow */
+/* Slideshow */
 .slideshow-container {
     width: 100%;
     height: 80vh;
     position: relative;
     background: #f5f5f5;
+    display: flex; /* Flexbox to align logo and slides */
+}
+
+.logo-slide {
+    height: 100%; /* Match slideshow height */
+    width: 80vh; /* Width equals height (square) */
+    flex-shrink: 0; /* Prevent shrinking */
+    background: #ffffff; /* White background for logo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ensure logo fits without distortion */
 }
 
 .slide {
     display: none;
-    width: 100%;
+    width: calc(100% - 80vh); /* Remaining width after logo */
     height: 100%;
     position: absolute;
     top: 0;
-    left: 0;
+    right: 0; /* Align slides to the right of logo */
 }
 
 .text {
@@ -101,7 +119,7 @@ nav ul li a:hover { color: #e65c00; }
     background: rgba(255, 255, 255, 0.95);
     border-radius: 8px;
     width: 80%;
-    max-width: 900px;
+    max-width: 700px; /* Adjusted to fit beside logo */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -244,9 +262,30 @@ footer {
     nav ul { flex-direction: column; }
     nav ul li { margin: 0.5rem 0; }
     .nav-toggle:checked ~ nav { transform: translateX(0); }
-    .slideshow-container { height: 60vh; }
-    .text { font-size: 1rem; }
-    .text h2 { font-size: 1.5rem; }
+    .slideshow-container {
+        height: 60vh;
+        flex-direction: column; /* Stack logo and slides vertically */
+    }
+    .logo-slide {
+        width: 100%; /* Full width on mobile */
+        height: 20vh; /* Smaller fixed height for logo */
+    }
+
+    .slide {
+        width: 100%; /* Full width below logo */
+        height: calc(60vh - 20vh); /* Remaining height */
+        position: relative; /* Adjust for stacking */
+        right: auto;
+    }
+
+    .text {
+        font-size: 1rem;
+        max-width: 90%;
+    }
+
+    .text h2 {
+        font-size: 1.5rem;
+    }
 }
 #form-message {
     font-size: 1rem;
