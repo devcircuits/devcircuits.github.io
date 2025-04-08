@@ -16,12 +16,12 @@ function createDots() {
 
 function showSlides() {
     for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
+        slides[i].className = "slide"; // Reset to base class
         dotsContainer.children[i].className = "dot";
     }
     slideIndex++;
     if (slideIndex > slides.length) { slideIndex = 1; }
-    slides[slideIndex - 1].style.display = "block";
+    slides[slideIndex - 1].className = "slide active fade"; // Add active class
     dotsContainer.children[slideIndex - 1].className = "dot active";
     setTimeout(showSlides, 8000); // 8 seconds
 }
