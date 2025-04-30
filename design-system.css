@@ -1,8 +1,8 @@
 :root {
     /* Color Palette */
-    --primary: #2563eb;      /* Modern Blue */
-    --primary-dark: #1d4ed8;
-    --primary-light: #3b82f6;
+    --primary: #ff6200;      /* Orange */
+    --primary-dark: #e65c00;
+    --primary-light: #ff7a33;
     --secondary: #10b981;    /* Emerald Green */
     --accent: #f59e0b;       /* Amber */
     --background: #f8fafc;   /* Light Gray */

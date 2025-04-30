@@ -2,13 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="DevCircuit Leadership - Meet Our Team of Experts">
+    <meta name="theme-color" content="#ff6200">
     <title>Leadership - DevCircuit</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="design-system.css">
+    <link rel="stylesheet" href="styles.css?v=1">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="favicon.png">
 </head>
 <body>
-    <header>
+    <div class="watermark">
+        <img src="logo.png" alt="DevCircuit Watermark" class="watermark-img">
+    </div>
+
+    <header class="container">
         <div class="logo">
             <img src="logo.png" alt="DevCircuit Logo">
         </div>
@@ -21,26 +29,61 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="solutions.html">Solutions</a></li>
-                <li><a href="leadership.html">Leadership</a></li>
+                <li><a href="leadership.html" class="active">Leadership</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
-        <section class="content">
-            <h1>Leadership Team</h1>
-            <p>Meet our experienced leadership team driving innovation:</p>
-            <ul>
-                <li>Sowjanya Kakani - Founder & CEO</li>
-                <li>Raghunath Chava - Founder & CTO</li>
-                <li>Madhava Reddy Gadipally - COO</li>
-            </ul>
+    <main class="container">
+        <section class="leadership-section">
+            <div class="card">
+                <h1>Our Leadership Team</h1>
+                <p>Meet the experienced professionals who drive innovation and excellence at DevCircuit.</p>
+            </div>
+
+            <div class="grid grid-cols-2">
+                <div class="card leadership-card">
+                    <img src="ceo.jpg" alt="CEO" class="leadership-img">
+                    <h2>John Doe</h2>
+                    <h3>Chief Executive Officer</h3>
+                    <p>With over 15 years of experience in hardware design and IoT solutions, John leads our company's strategic vision and growth initiatives.</p>
+                </div>
+                <div class="card leadership-card">
+                    <img src="cto.jpg" alt="CTO" class="leadership-img">
+                    <h2>Jane Smith</h2>
+                    <h3>Chief Technology Officer</h3>
+                    <p>Jane brings extensive expertise in circuit design and embedded systems, driving our technical innovation and product development.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-3">
+                <div class="card leadership-card">
+                    <img src="head-engineering.jpg" alt="Head of Engineering" class="leadership-img">
+                    <h2>Mike Johnson</h2>
+                    <h3>Head of Engineering</h3>
+                    <p>Leading our engineering team with a focus on quality and innovation in PCB development.</p>
+                </div>
+                <div class="card leadership-card">
+                    <img src="head-iot.jpg" alt="Head of IoT" class="leadership-img">
+                    <h2>Sarah Williams</h2>
+                    <h3>Head of IoT Solutions</h3>
+                    <p>Expert in IoT architecture and implementation, driving our connected solutions forward.</p>
+                </div>
+                <div class="card leadership-card">
+                    <img src="head-rd.jpg" alt="Head of R&D" class="leadership-img">
+                    <h2>David Brown</h2>
+                    <h3>Head of Research & Development</h3>
+                    <p>Pioneering new technologies and pushing the boundaries of hardware innovation.</p>
+                </div>
+            </div>
         </section>
     </main>
 
     <footer>
-        <p>© 2025 DevCircuit.in. All rights reserved.</p>
+        <div class="container">
+            <p>© 2025 DevCircuit.in. All rights reserved.</p>
+        </div>
     </footer>
 </body>
 </html>

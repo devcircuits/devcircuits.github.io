@@ -2,10 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Contact DevCircuit - Get in Touch with Our Team">
+    <meta name="theme-color" content="#ff6200">
     <title>Contact Us - DevCircuit</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="design-system.css">
+    <link rel="stylesheet" href="styles.css?v=1">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="favicon.png">
     <!-- EmailJS SDK -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script type="text/javascript">
@@ -16,7 +20,11 @@
     </script>
 </head>
 <body>
-    <header>
+    <div class="watermark">
+        <img src="logo.png" alt="DevCircuit Watermark" class="watermark-img">
+    </div>
+
+    <header class="container">
         <div class="logo">
             <img src="logo.png" alt="DevCircuit Logo">
         </div>
@@ -30,42 +38,84 @@
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="solutions.html">Solutions</a></li>
                 <li><a href="leadership.html">Leadership</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="contact.html" class="active">Contact Us</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
-        <section class="content">
-            <h1>Contact Us</h1>
-            <p>Email: <a href="mailto:info@devcircuit.in">info@devcircuit.in</a></p>
-            <h2>Leave a Comment</h2>
-            <form id="contact-form">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="comment">Comment:</label>
-                <textarea id="comment" name="comment" rows="5" required></textarea>
-                <button type="submit">Submit</button>
-            </form>
-            <p id="form-message" style="display: none; margin-top: 1rem;"></p>
+    <main class="container">
+        <section class="contact-section">
+            <div class="card">
+                <h1>Contact Us</h1>
+                <p>Get in touch with our team to discuss your project requirements or learn more about our services.</p>
+            </div>
+
+            <div class="grid grid-cols-2">
+                <div class="card contact-info">
+                    <h2>Contact Information</h2>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <h3>Address</h3>
+                            <p>123 Tech Park, Innovation Road<br>Hyderabad, Telangana 500081</p>
+                        </div>
+                        <div class="contact-item">
+                            <h3>Phone</h3>
+                            <p>+91 98765 43210</p>
+                        </div>
+                        <div class="contact-item">
+                            <h3>Email</h3>
+                            <p>info@devcircuit.in</p>
+                        </div>
+                        <div class="contact-item">
+                            <h3>Business Hours</h3>
+                            <p>Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 10:00 AM - 2:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card contact-form">
+                    <h2>Send Us a Message</h2>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
         </section>
     </main>
 
     <footer>
-        <p>© 2025 DevCircuit.in. All rights reserved.</p>
+        <div class="container">
+            <p>© 2025 DevCircuit.in. All rights reserved.</p>
+        </div>
     </footer>
 
+    <script src="script.js"></script>
     <script>
-        document.getElementById('contact-form').addEventListener('submit', function(event) {
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
             event.preventDefault(); // Prevent default form submission
 
             // Collect form data
             const formData = {
                 name: document.getElementById('name').value,
                 email: document.getElementById('email').value,
-                comment: document.getElementById('comment').value
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value
             };
 
             // Send email using EmailJS
@@ -74,13 +124,13 @@
                     const message = document.getElementById('form-message');
                     message.style.display = 'block';
                     message.style.color = '#ff6200';
-                    message.textContent = 'Your comment has been sent successfully!';
-                    document.getElementById('contact-form').reset(); // Clear form
+                    message.textContent = 'Your message has been sent successfully!';
+                    document.getElementById('contactForm').reset(); // Clear form
                 }, (error) => {
                     const message = document.getElementById('form-message');
                     message.style.display = 'block';
                     message.style.color = '#ff0000';
-                    message.textContent = 'Failed to send comment. Please try again.';
+                    message.textContent = 'Failed to send message. Please try again.';
                     console.error('EmailJS Error:', error);
                 });
         });
