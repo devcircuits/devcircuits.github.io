@@ -23,7 +23,7 @@ function showSlides() {
     if (slideIndex > slides.length) { slideIndex = 1; }
     slides[slideIndex - 1].className = "slide active fade"; // Add active class
     dotsContainer.children[slideIndex - 1].className = "dot active";
-    setTimeout(showSlides, 3000); // Changed from 8000ms to 3000ms (3 seconds)
+    setTimeout(showSlides, 9000); // Changed from 8000ms to 3000ms (3 seconds)
 }
 
 createDots();
