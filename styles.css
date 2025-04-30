@@ -248,7 +248,7 @@ footer {
 }
 
 /* Mobile */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
     .nav-toggle-label { display: block; }
     nav {
         position: absolute;
