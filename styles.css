@@ -256,6 +256,12 @@ footer {
     .logo-slide {
         width: 100%;
         height: 20vh;
+        aspect-ratio: 1 / 1; /* Ensure square shape */
+    }
+    .logo-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain; /* Already present, kept for clarity */
     }
     .slide {
         width: 100%;
