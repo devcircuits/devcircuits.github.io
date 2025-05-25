@@ -197,11 +197,12 @@ const initDarkMode = () => {
         const handleDarkModeChange = (e) => {
             state.darkMode = e.matches;
             document.documentElement.classList.toggle('dark-mode', e.matches);
+            document.body.classList.toggle('dark-mode', e.matches);
             
             // Update meta theme-color
             const metaThemeColor = document.querySelector('meta[name="theme-color"]');
             if (metaThemeColor) {
-                metaThemeColor.setAttribute('content', e.matches ? '#0f172a' : '#ffffff');
+                metaThemeColor.setAttribute('content', e.matches ? '#1a120b' : '#ffffff');
             }
         };
 

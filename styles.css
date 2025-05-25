@@ -14,11 +14,13 @@
 
 .dark-mode body {
     background-color: var(--dark-background);
+    color: var(--dark-text-primary);
 }
 
 .dark-mode .content {
     background-color: var(--dark-surface);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    color: var(--dark-text-primary);
 }
 
 .dark-mode .solution-card {
@@ -143,8 +145,8 @@
 }
 
 body {
-    background: #ffffff;
-    color: #333333;
+    background: var(--background);
+    color: var(--text-primary);
     line-height: 1.6;
     min-height: 100vh;
     display: flex;
