@@ -112,6 +112,7 @@
     /* Dark Mode Specific Styles */
     body {
         color-scheme: dark;
+        background-color: var(--dark-background);
     }
 
     .card {
@@ -139,7 +140,7 @@
 
     .form-input:focus {
         border-color: var(--primary);
-        box-shadow: 0 0 0 3px rgba(255, 98, 0, 0.2);
+        box-shadow: 0 0 0 3px rgba(255, 140, 66, 0.2);
     }
 
     .skeleton {
@@ -180,8 +181,19 @@
 
     /* Dark Mode Header */
     header.scrolled {
-        background-color: rgba(30, 41, 59, 0.95);
+        background-color: rgba(44, 24, 16, 0.95);
         backdrop-filter: blur(8px);
+    }
+
+    /* Dark Mode Main Content */
+    main {
+        background-color: var(--dark-background);
+    }
+
+    /* Dark Mode Footer */
+    footer {
+        background-color: var(--dark-surface);
+        border-top: 1px solid var(--dark-surface-hover);
     }
 }
 

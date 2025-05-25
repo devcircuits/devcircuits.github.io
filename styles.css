@@ -12,6 +12,10 @@
     color-scheme: dark;
 }
 
+.dark-mode body {
+    background-color: var(--dark-background);
+}
+
 .dark-mode .content {
     background-color: var(--dark-surface);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
@@ -86,6 +90,27 @@
 
 .dark-mode .cta-card .btn:hover {
     background: var(--primary-dark);
+}
+
+.dark-mode main {
+    background-color: var(--dark-background);
+}
+
+.dark-mode .slideshow-container {
+    background-color: var(--dark-background);
+}
+
+.dark-mode .text {
+    background-color: var(--dark-surface);
+    color: var(--dark-text-primary);
+}
+
+.dark-mode .text h2 {
+    color: var(--primary);
+}
+
+.dark-mode .text p {
+    color: var(--dark-text-secondary);
 }
 
 /* Skip to Main Content */
