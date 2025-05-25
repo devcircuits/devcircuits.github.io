@@ -3,4 +3,4 @@ Allow: /
 Disallow: /backup/
 Disallow: /backup_080425/
 
-Sitemap: https://devcircuit.in/sitemap.xml 
+Sitemap: https://DEVCircuit.in/sitemap.xml 
