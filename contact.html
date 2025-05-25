@@ -3,171 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="description" content="Contact DevCircuit - Get in Touch with Our Team">
+    <meta name="description" content="Contact DEVCircuit - Get in touch with our team for innovative hardware solutions">
     <meta name="theme-color" content="#ff6200">
-    <title>Contact Us - DevCircuit</title>
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Contact DEVCircuit - Get in Touch">
+    <meta property="og:description" content="Reach out to our team for innovative hardware solutions and expert consultation">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://DEVCircuit.in/contact">
+    <meta property="og:image" content="https://DEVCircuit.in/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@DEVCircuit">
+    <title>Contact DEVCircuit - Get in Touch</title>
+    
+    <!-- Resource Hints -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="design-system.css" as="style">
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="script.js" as="script">
+    
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="design-system.css">
     <link rel="stylesheet" href="styles.css?v=1">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="favicon.png">
-    <!-- EmailJS SDK -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script type="text/javascript">
-        (function() {
-            // Initialize EmailJS with your User ID (Public Key)
-            emailjs.init("0qNAYleisahB0PKiT"); // Replace with your EmailJS User ID
-        })();
-    </script>
 </head>
 <body>
-    <div class="watermark">
-        <img src="logo.png" alt="DevCircuit Watermark" class="watermark-img">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <div class="watermark" role="presentation" aria-hidden="true">
+        <img src="logo.png" alt="" class="watermark-img" loading="lazy">
     </div>
 
-    <header class="container">
+    <header class="container" role="banner">
         <div class="logo">
-            <img src="logo.png" alt="DevCircuit Logo">
+            <a href="/" aria-label="DEVCircuit Home">
+                <img src="logo.png" alt="DEVCircuit Logo" width="150" height="50" loading="eager">
+            </a>
         </div>
-        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation menu">
         <label for="nav-toggle" class="nav-toggle-label">
             <span></span>
         </label>
-        <nav>
+        <nav role="navigation" aria-label="Main navigation">
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="solutions.html">Solutions</a></li>
                 <li><a href="leadership.html">Leadership</a></li>
-                <li><a href="contact.html" class="active">Contact Us</a></li>
+                <li><a href="contact.html" class="active" aria-current="page">Contact Us</a></li>
             </ul>
         </nav>
     </header>
 
-    <main class="container">
-        <section class="contact-section">
-            <div class="card">
-                <h1>Contact Us</h1>
-                <p>Get in touch with our team to discuss your project requirements or learn more about our services.</p>
+    <main id="main-content" class="container" role="main">
+        <section class="contact-hero" aria-labelledby="contact-heading">
+            <div class="card hero-card">
+                <h1 id="contact-heading">Get in Touch</h1>
+                <p>Let's discuss how we can help transform your ideas into reality</p>
             </div>
+        </section>
 
+        <section class="contact-grid" aria-labelledby="contact-info-heading">
             <div class="grid grid-cols-2">
-                <div class="card contact-info">
-                    <h2>Contact Information</h2>
+                <article class="card contact-info-card">
+                    <h2 id="contact-info-heading">Contact Information</h2>
                     <div class="contact-details">
                         <div class="contact-item">
-                            <h3>Address</h3>
-                            <p> Hyderabad, Telangana 500049</p>
+                            <img src="assets/icons/email.png" alt="" loading="lazy">
+                            <div>
+                                <h3>Email</h3>
+                                <p><a href="mailto:info@DEVCircuit.in">info@DEVCircuit.in</a></p>
+                            </div>
                         </div>
                         <div class="contact-item">
-                            <h3>Email</h3>
-                            <p>info@DEVCircuit.in</p>
+                            <img src="assets/icons/phone.png" alt="" loading="lazy">
+                            <div>
+                                <h3>Phone</h3>
+                                <p><a href="tel:+91XXXXXXXXXX">+91 XXXXXXXXXX</a></p>
+                            </div>
                         </div>
                         <div class="contact-item">
-                            <h3>Business Hours</h3>
-                            <p>Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 10:00 AM - 2:00 PM</p>
+                            <img src="assets/icons/location.png" alt="" loading="lazy">
+                            <div>
+                                <h3>Address</h3>
+                                <p>123 Innovation Street<br>Tech Park, Hyderabad<br>Telangana, India</p>
+                            </div>
                         </div>
                     </div>
-                </div>
+                    <div class="social-links">
+                        <h3>Follow Us</h3>
+                        <div class="social-icons">
+                            <a href="https://linkedin.com/company/DEVCircuit" target="_blank" rel="noopener noreferrer" aria-label="Follow us on LinkedIn">
+                                <img src="assets/icons/linkedin.png" alt="" loading="lazy">
+                            </a>
+                            <a href="https://twitter.com/DEVCircuit" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Twitter">
+                                <img src="assets/icons/twitter.png" alt="" loading="lazy">
+                            </a>
+                        </div>
+                    </div>
+                </article>
 
-                <div class="card contact-form">
+                <article class="card contact-form-card">
                     <h2>Send Us a Message</h2>
-                    <form id="contactForm">
+                    <form id="contact-form" class="contact-form" aria-label="Contact form">
                         <div class="form-group">
                             <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required>
+                            <input type="text" id="name" name="name" required aria-required="true">
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email" name="email" required aria-required="true">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" name="phone" required aria-required="true">
                         </div>
                         <div class="form-group">
                             <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" required>
+                            <input type="text" id="subject" name="subject" required aria-required="true">
                         </div>
                         <div class="form-group">
                             <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
+                            <textarea id="message" name="message" rows="5" required aria-required="true"></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Send Message</button>
                     </form>
+                </article>
+            </div>
+        </section>
+
+        <section class="map-section" aria-labelledby="map-heading">
+            <div class="card">
+                <h2 id="map-heading">Find Us</h2>
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30452.123456789!2d78.3!3d17.4!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTfCsDI0JzAwLjAiTiA3OMKwMTgnMDAuMCJF!5e0!3m2!1sen!2sin!4v1234567890"
+                        width="100%" 
+                        height="450" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="DEVCircuit Office Location"
+                        aria-label="Interactive map showing DEVCircuit office location">
+                    </iframe>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>
+    <footer role="contentinfo">
         <div class="container">
             <p>© 2025 DEVCircuit.in. All rights reserved.</p>
         </div>
     </footer>
 
-    <script src="script.js"></script>
-    <script>
-        document.getElementById('contactForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent default form submission
-
-            // Show loading state
-            const submitButton = this.querySelector('button[type="submit"]');
-            const originalButtonText = submitButton.textContent;
-            submitButton.disabled = true;
-            submitButton.textContent = 'Sending...';
-
-            // Collect form data
-            const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                subject: document.getElementById('subject').value,
-                message: document.getElementById('message').value
-            };
-
-            // Send email using EmailJS
-            emailjs.send('service_ujz4617', 'template_qhsiqy9', formData)
-                .then(() => {
-                    // Create success message element if it doesn't exist
-                    let message = document.getElementById('form-message');
-                    if (!message) {
-                        message = document.createElement('div');
-                        message.id = 'form-message';
-                        this.appendChild(message);
-                    }
-                    
-                    // Show success message
-                    message.style.display = 'block';
-                    message.style.color = '#ff6200';
-                    message.textContent = 'Your message has been sent successfully!';
-                    
-                    // Reset form
-                    this.reset();
-                    
-                    // Reset button state
-                    submitButton.disabled = false;
-                    submitButton.textContent = originalButtonText;
-                    
-                    // Hide message after 3 seconds
-                    setTimeout(() => {
-                        message.style.display = 'none';
-                    }, 3000);
-                }, (error) => {
-                    // Create error message element if it doesn't exist
-                    let message = document.getElementById('form-message');
-                    if (!message) {
-                        message = document.createElement('div');
-                        message.id = 'form-message';
-                        this.appendChild(message);
-                    }
-                    
-                    // Show error message
-                    message.style.display = 'block';
-                    message.style.color = '#ff0000';
-                    message.textContent = 'Failed to send message. Please try again.';
-                    
-                    // Reset button state
-                    submitButton.disabled = false;
-                    submitButton.textContent = originalButtonText;
-                    
-                    console.error('EmailJS Error:', error);
-                });
-        });
-    </script>
+    <script src="script.js" defer></script>
 </body>
 </html>

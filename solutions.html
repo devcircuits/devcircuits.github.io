@@ -3,95 +3,196 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="description" content="DevCircuit Solutions - Custom Circuit Design, PCB Development, and IoT Solutions">
+    <meta name="description" content="Explore DEVCircuit's innovative hardware solutions - Circuit Design, PCB Development, and IoT Solutions">
     <meta name="theme-color" content="#ff6200">
-    <title>Solutions - DevCircuit</title>
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="DEVCircuit Solutions - Hardware Innovation">
+    <meta property="og:description" content="Discover our comprehensive hardware solutions for circuit design, PCB development, and IoT integration">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://DEVCircuit.in/solutions">
+    <meta property="og:image" content="https://DEVCircuit.in/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@DEVCircuit">
+    <title>DEVCircuit Solutions - Hardware Innovation</title>
+    
+    <!-- Resource Hints -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="design-system.css" as="style">
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="script.js" as="script">
+    
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="design-system.css">
     <link rel="stylesheet" href="styles.css?v=1">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="favicon.png">
 </head>
 <body>
-    <div class="watermark">
-        <img src="logo.png" alt="DevCircuit Watermark" class="watermark-img">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <div class="watermark" role="presentation" aria-hidden="true">
+        <img src="logo.png" alt="" class="watermark-img" loading="lazy">
     </div>
 
-    <header class="container">
+    <header class="container" role="banner">
         <div class="logo">
-            <img src="logo.png" alt="DevCircuit Logo">
+            <a href="/" aria-label="DEVCircuit Home">
+                <img src="logo.png" alt="DEVCircuit Logo" width="150" height="50" loading="eager">
+            </a>
         </div>
-        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation menu">
         <label for="nav-toggle" class="nav-toggle-label">
             <span></span>
         </label>
-        <nav>
+        <nav role="navigation" aria-label="Main navigation">
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
-                <li><a href="solutions.html" class="active">Solutions</a></li>
+                <li><a href="solutions.html" class="active" aria-current="page">Solutions</a></li>
                 <li><a href="leadership.html">Leadership</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
             </ul>
         </nav>
     </header>
 
-    <main class="container">
-        <section class="solutions-section">
+    <main id="main-content" class="container" role="main">
+        <section class="solutions-hero" aria-labelledby="solutions-heading">
+            <div class="card hero-card">
+                <h1 id="solutions-heading">Our Solutions</h1>
+                <p>Comprehensive hardware solutions for modern challenges</p>
+            </div>
+        </section>
+
+        <section class="circuit-design" aria-labelledby="circuit-heading">
             <div class="card">
-                <h1>Our Solutions</h1>
-                <p class="lead">At DevCircuit, we offer comprehensive solutions that bridge the gap between hardware and software, delivering end-to-end technology solutions for modern challenges.</p>
+                <h2 id="circuit-heading">Circuit Design</h2>
+                <p>Custom circuit solutions tailored to your specific needs</p>
             </div>
 
             <div class="grid grid-cols-2">
-                <div class="card">
-                    <h2>Custom Circuit Design</h2>
-                    <p>From concept to production, we design and develop custom circuits tailored to your specific needs. Our expertise spans analog, digital, and mixed-signal circuits, ensuring optimal performance and reliability.</p>
-                </div>
-                <div class="card">
-                    <h2>Firmware Development</h2>
-                    <p>We create robust, efficient firmware solutions for various microcontrollers and processors, including ESP32, ARM, and RISC-V architectures. Our firmware is optimized for performance, security, and scalability.</p>
-                </div>
+                <article class="card solution-card">
+                    <div class="solution-icon">
+                        <img src="assets/icons/analog-icon.png" alt="" loading="lazy">
+                    </div>
+                    <h3>Analog Circuits</h3>
+                    <p>High-performance analog circuits for signal processing and power management</p>
+                    <ul>
+                        <li>Signal conditioning</li>
+                        <li>Power management</li>
+                        <li>Sensor interfaces</li>
+                    </ul>
+                </article>
+                <article class="card solution-card">
+                    <div class="solution-icon">
+                        <img src="assets/icons/digital-icon.png" alt="" loading="lazy">
+                    </div>
+                    <h3>Digital Circuits</h3>
+                    <p>Advanced digital circuits for processing and control applications</p>
+                    <ul>
+                        <li>Microcontroller interfaces</li>
+                        <li>Digital signal processing</li>
+                        <li>Control systems</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section class="pcb-development" aria-labelledby="pcb-heading">
+            <div class="card">
+                <h2 id="pcb-heading">PCB Development</h2>
+                <p>End-to-end PCB design and manufacturing services</p>
+            </div>
+
+            <div class="grid grid-cols-3">
+                <article class="card pcb-card">
+                    <div class="pcb-icon">
+                        <img src="assets/icons/design-icon.png" alt="" loading="lazy">
+                    </div>
+                    <h3>PCB Design</h3>
+                    <p>Professional PCB layout and routing services</p>
+                    <ul>
+                        <li>Multi-layer designs</li>
+                        <li>High-speed layouts</li>
+                        <li>EMI/EMC compliance</li>
+                    </ul>
+                </article>
+                <article class="card pcb-card">
+                    <div class="pcb-icon">
+                        <img src="assets/icons/prototype-icon.png" alt="" loading="lazy">
+                    </div>
+                    <h3>Prototyping</h3>
+                    <p>Rapid prototyping and testing services</p>
+                    <ul>
+                        <li>Quick-turn prototypes</li>
+                        <li>Design validation</li>
+                        <li>Performance testing</li>
+                    </ul>
+                </article>
+                <article class="card pcb-card">
+                    <div class="pcb-icon">
+                        <img src="assets/icons/manufacturing-icon.png" alt="" loading="lazy">
+                    </div>
+                    <h3>Manufacturing</h3>
+                    <p>High-quality PCB manufacturing solutions</p>
+                    <ul>
+                        <li>Volume production</li>
+                        <li>Quality assurance</li>
+                        <li>Supply chain management</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section class="iot-solutions" aria-labelledby="iot-heading">
+            <div class="card">
+                <h2 id="iot-heading">IoT Solutions</h2>
+                <p>Comprehensive IoT development and integration services</p>
             </div>
 
             <div class="grid grid-cols-2">
-                <div class="card">
-                    <h2>IoT Solutions</h2>
-                    <p>We develop comprehensive IoT solutions that connect devices, collect data, and enable smart decision-making. Our solutions include edge computing capabilities and cloud integration for seamless operation.</p>
-                </div>
-                <div class="card">
-                    <h2>Application Development</h2>
-                    <p>We build intuitive and powerful applications that complement our hardware solutions, providing complete end-to-end systems for our clients.</p>
-                </div>
+                <article class="card iot-card">
+                    <div class="iot-icon">
+                        <img src="assets/icons/edge-icon.png" alt="" loading="lazy">
+                    </div>
+                    <h3>Edge Computing</h3>
+                    <p>Advanced edge computing solutions for IoT devices</p>
+                    <ul>
+                        <li>Local processing</li>
+                        <li>Real-time analytics</li>
+                        <li>Edge AI integration</li>
+                    </ul>
+                </article>
+                <article class="card iot-card">
+                    <div class="iot-icon">
+                        <img src="assets/icons/connectivity-icon.png" alt="" loading="lazy">
+                    </div>
+                    <h3>Connectivity</h3>
+                    <p>Seamless connectivity solutions for IoT networks</p>
+                    <ul>
+                        <li>Wireless protocols</li>
+                        <li>Network security</li>
+                        <li>Cloud integration</li>
+                    </ul>
+                </article>
             </div>
+        </section>
 
-            <div class="grid grid-cols-2">
-                <div class="card">
-                    <h2>R&D Services</h2>
-                    <p>Our research and development team works on cutting-edge technologies, pushing the boundaries of what's possible in hardware and software integration.</p>
-                </div>
-                <div class="card">
-                    <h2>End-to-End Product Development</h2>
-                    <p>We handle the entire product development lifecycle, from initial concept to final production, ensuring quality and efficiency at every stage.</p>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-2">
-                <div class="card">
-                    <h2>Specialized Platform Solutions</h2>
-                    <p>We develop specialized solutions for various platforms, including ESP32, ARM, and Shakti V (RISC-V), optimizing performance for specific use cases.</p>
-                </div>
-                <div class="card">
-                    <h2>Industry-Specific Solutions</h2>
-                    <p>We create tailored solutions for industries such as smart cities, precision agriculture, and industrial automation, addressing unique challenges with innovative approaches.</p>
-                </div>
+        <section class="cta-section" aria-labelledby="cta-heading">
+            <div class="card cta-card">
+                <h2 id="cta-heading">Ready to Transform Your Ideas?</h2>
+                <p>Let's discuss how our solutions can help your business grow</p>
+                <a href="contact.html" class="btn btn-primary">Contact Us</a>
             </div>
         </section>
     </main>
 
-    <footer>
+    <footer role="contentinfo">
         <div class="container">
             <p>© 2025 DEVCircuit.in. All rights reserved.</p>
         </div>
     </footer>
+
+    <script src="script.js" defer></script>
 </body>
 </html>

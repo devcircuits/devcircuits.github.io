@@ -3,21 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="description" content="DevCircuit - Innovative Solutions for Circuit Design, PCB Development, and IoT Solutions">
+    <meta name="description" content="DEVCircuit - Innovative Solutions for Circuit Design, PCB Development, and IoT Solutions">
     <meta name="theme-color" content="#ff6200">
     <meta name="robots" content="index, follow">
-    <meta property="og:title" content="DevCircuit - Innovative Solutions">
+    <meta property="og:title" content="DEVCircuit - Innovative Solutions">
     <meta property="og:description" content="Transforming ideas into reality through cutting-edge circuit design, PCB development, and IoT solutions.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://DEVCircuit.in">
+    <meta property="og:image" content="https://DEVCircuit.in/og-image.jpg">
     <meta name="twitter:card" content="summary_large_image">
-    <title>DevCircuit - Innovative Solutions</title>
+    <meta name="twitter:site" content="@DEVCircuit">
+    <title>DEVCircuit - Innovative Solutions</title>
     
     <!-- Resource Hints -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" href="design-system.css" as="style">
     <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="script.js" as="script">
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="design-system.css">
@@ -30,23 +33,37 @@
     {
         "@context": "https://schema.org",
         "@type": "Organization",
-        "name": "DevCircuit",
+        "name": "DEVCircuit",
         "url": "https://DEVCircuit.in",
         "description": "Innovative Solutions for Circuit Design, PCB Development, and IoT Solutions",
-        "logo": "https://DEVCircuit.in/logo.png"
+        "logo": "https://DEVCircuit.in/logo.png",
+        "sameAs": [
+            "https://twitter.com/DEVCircuit",
+            "https://linkedin.com/company/DEVCircuit"
+        ],
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+91-XXXXXXXXXX",
+            "contactType": "customer service",
+            "email": "info@DEVCircuit.in",
+            "areaServed": "IN",
+            "availableLanguage": ["English", "Hindi", "Telugu"]
+        }
     }
     </script>
 </head>
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
     
-    <div class="watermark" role="presentation">
-        <img src="logo.png" alt="DevCircuit Watermark" class="watermark-img" loading="lazy">
+    <div class="watermark" role="presentation" aria-hidden="true">
+        <img src="logo.png" alt="" class="watermark-img" loading="lazy">
     </div>
 
     <header class="container" role="banner">
         <div class="logo">
-            <img src="logo.png" alt="DevCircuit Logo" width="150" height="50">
+            <a href="/" aria-label="DEVCircuit Home">
+                <img src="logo.png" alt="DEVCircuit Logo" width="150" height="50" loading="eager">
+            </a>
         </div>
         <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation menu">
         <label for="nav-toggle" class="nav-toggle-label">
@@ -64,7 +81,7 @@
     </header>
 
     <main id="main-content" class="container" role="main">
-        <section class="hero-section">
+        <section class="hero-section" aria-label="Hero">
             <div class="card hero-card">
                 <h1>Innovative Hardware Solutions</h1>
                 <p>Transforming ideas into reality through cutting-edge circuit design, PCB development, and IoT solutions.</p>
@@ -75,16 +92,16 @@
             </div>
         </section>
 
-        <section class="services-section">
+        <section class="services-section" aria-labelledby="services-heading">
             <div class="card">
-                <h2>Our Core Services</h2>
+                <h2 id="services-heading">Our Core Services</h2>
                 <p>Comprehensive solutions for your hardware development needs</p>
             </div>
 
             <div class="grid grid-cols-3">
-                <div class="card service-card">
+                <article class="card service-card">
                     <div class="service-icon">
-                        <img src="assets/icons/circuit-icon.png" alt="Circuit Design">
+                        <img src="assets/icons/circuit-icon.png" alt="" loading="lazy">
                     </div>
                     <h3>Circuit Design</h3>
                     <p>Custom analog, digital, and mixed-signal circuits optimized for performance and efficiency.</p>
@@ -93,10 +110,10 @@
                         <li>Power management solutions</li>
                         <li>Signal processing</li>
                     </ul>
-                </div>
-                <div class="card service-card">
+                </article>
+                <article class="card service-card">
                     <div class="service-icon">
-                        <img src="assets/icons/pcb-icon.png" alt="PCB Development">
+                        <img src="assets/icons/pcb-icon.png" alt="" loading="lazy">
                     </div>
                     <h3>PCB Development</h3>
                     <p>End-to-end PCB design and development services from concept to production.</p>
@@ -105,10 +122,10 @@
                         <li>High-speed layout</li>
                         <li>EMI/EMC compliance</li>
                     </ul>
-                </div>
-                <div class="card service-card">
+                </article>
+                <article class="card service-card">
                     <div class="service-icon">
-                        <img src="assets/icons/iot-icon.png" alt="IoT Solutions">
+                        <img src="assets/icons/iot-icon.png" alt="" loading="lazy">
                     </div>
                     <h3>IoT Solutions</h3>
                     <p>Comprehensive IoT solutions enabling seamless connectivity and smart device integration.</p>
@@ -117,39 +134,39 @@
                         <li>Wireless connectivity</li>
                         <li>Cloud integration</li>
                     </ul>
-                </div>
+                </article>
             </div>
         </section>
 
-        <section class="features-section">
+        <section class="features-section" aria-labelledby="features-heading">
             <div class="card">
-                <h2>Why Choose DevCircuit?</h2>
+                <h2 id="features-heading">Why Choose DEVCircuit?</h2>
                 <p>We combine expertise with innovation to deliver exceptional results</p>
             </div>
 
             <div class="grid grid-cols-2">
-                <div class="card feature-card">
+                <article class="card feature-card">
                     <h3>Expert Team</h3>
                     <p>Our team of experienced professionals brings deep expertise in hardware design and development.</p>
-                </div>
-                <div class="card feature-card">
+                </article>
+                <article class="card feature-card">
                     <h3>Innovation Focus</h3>
                     <p>We stay at the forefront of technology, constantly exploring new solutions and approaches.</p>
-                </div>
-                <div class="card feature-card">
+                </article>
+                <article class="card feature-card">
                     <h3>Quality Assurance</h3>
                     <p>Rigorous testing and validation ensure the highest quality in all our deliverables.</p>
-                </div>
-                <div class="card feature-card">
+                </article>
+                <article class="card feature-card">
                     <h3>Customer-Centric</h3>
                     <p>We work closely with clients to understand their needs and deliver tailored solutions.</p>
-                </div>
+                </article>
             </div>
         </section>
 
-        <section class="cta-section">
+        <section class="cta-section" aria-labelledby="cta-heading">
             <div class="card cta-card">
-                <h2>Ready to Start Your Project?</h2>
+                <h2 id="cta-heading">Ready to Start Your Project?</h2>
                 <p>Let's discuss how we can help bring your ideas to life</p>
                 <a href="contact.html" class="btn btn-primary">Contact Us</a>
             </div>

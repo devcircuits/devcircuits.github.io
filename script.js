@@ -1,23 +1,28 @@
 // Constants
-const SLIDE_DURATION = 5000;
-const TRANSITION_DURATION = 500;
-const SWIPE_THRESHOLD = 50;
+const SCROLL_THRESHOLD = 50;
+const ANIMATION_DELAY = 100;
+const TOUCH_THRESHOLD = 50;
 
 // State management
 const state = {
+    darkMode: window.matchMedia('(prefers-color-scheme: dark)').matches,
+    isScrolled: false,
+    isMenuOpen: false,
     currentSlide: 0,
-    isAnimating: false,
     touchStartX: 0,
-    touchEndX: 0,
-    scrollObserver: null,
-    darkMode: window.matchMedia('(prefers-color-scheme: dark)').matches
+    touchEndX: 0
 };
 
 // DOM Elements
 const elements = {
-    slides: document.getElementsByClassName("slide"),
-    dotsContainer: document.querySelector('.dots'),
-    slideshowContainer: document.querySelector('.slideshow-container')
+    header: document.querySelector('header'),
+    navToggle: document.getElementById('nav-toggle'),
+    navMenu: document.querySelector('nav'),
+    slideshow: document.querySelector('.slideshow-container'),
+    slides: document.querySelectorAll('.slide'),
+    dots: document.querySelectorAll('.dot'),
+    contactForm: document.getElementById('contactForm'),
+    formMessage: document.getElementById('form-message')
 };
 
 // Error handling
@@ -27,172 +32,156 @@ const handleError = (error, context) => {
 };
 
 // Scroll animations
-const initScrollAnimations = () => {
+const handleScroll = () => {
     try {
-        const animatedElements = document.querySelectorAll('.animate-on-scroll');
-        
-        state.scrollObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    state.scrollObserver.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        });
+        const scrollPosition = window.scrollY;
+        state.isScrolled = scrollPosition > SCROLL_THRESHOLD;
+        elements.header.classList.toggle('scrolled', state.isScrolled);
 
-        animatedElements.forEach(element => {
-            state.scrollObserver.observe(element);
+        // Animate elements on scroll
+        document.querySelectorAll('.animate-on-scroll').forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            const elementVisible = 150;
+            
+            if (elementTop < window.innerHeight - elementVisible) {
+                element.classList.add('visible');
+            }
         });
     } catch (error) {
-        handleError(error, 'initScrollAnimations');
+        handleError(error, 'scroll handling');
     }
 };
 
-// Header scroll effect
-const initHeaderScroll = () => {
+// Header scroll effects
+const initHeaderEffects = () => {
     try {
-        const header = document.querySelector('header');
-        let lastScroll = 0;
-
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            
-            if (currentScroll > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-
-            lastScroll = currentScroll;
-        });
+        window.addEventListener('scroll', handleScroll);
+        handleScroll(); // Initial check
     } catch (error) {
-        handleError(error, 'initHeaderScroll');
+        handleError(error, 'header effects initialization');
     }
 };
 
 // Slideshow functionality
-const createDots = (slides) => {
-    try {
-        const dotsContainer = document.querySelector('.dots-container');
-        if (!dotsContainer) return;
+const initSlideshow = () => {
+    if (!elements.slideshow) return;
 
-        slides.forEach((_, index) => {
-            const dot = document.createElement('button');
-            dot.classList.add('dot');
-            dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
-            dot.addEventListener('click', () => showSlides(index));
-            dotsContainer.appendChild(dot);
+    try {
+        const showSlide = (index) => {
+            elements.slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+            elements.dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+            state.currentSlide = index;
+        };
+
+        const nextSlide = () => {
+            const next = (state.currentSlide + 1) % elements.slides.length;
+            showSlide(next);
+        };
+
+        const prevSlide = () => {
+            const prev = (state.currentSlide - 1 + elements.slides.length) % elements.slides.length;
+            showSlide(prev);
+        };
+
+        // Auto-advance slides
+        let slideInterval = setInterval(nextSlide, 5000);
+
+        // Pause on hover
+        elements.slideshow.addEventListener('mouseenter', () => clearInterval(slideInterval));
+        elements.slideshow.addEventListener('mouseleave', () => {
+            slideInterval = setInterval(nextSlide, 5000);
         });
+
+        // Dot navigation
+        elements.dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                clearInterval(slideInterval);
+                showSlide(index);
+                slideInterval = setInterval(nextSlide, 5000);
+            });
+        });
+
+        // Initial slide
+        showSlide(0);
     } catch (error) {
-        handleError(error, 'createDots');
-    }
-};
-
-const showSlides = (index) => {
-    try {
-        if (state.isAnimating) return;
-        state.isAnimating = true;
-
-        const slides = document.querySelectorAll('.slide');
-        const dots = document.querySelectorAll('.dot');
-        
-        if (!slides.length || !dots.length) return;
-
-        slides[state.currentSlide].classList.remove('active');
-        dots[state.currentSlide].classList.remove('active');
-
-        state.currentSlide = index;
-        if (state.currentSlide >= slides.length) state.currentSlide = 0;
-        if (state.currentSlide < 0) state.currentSlide = slides.length - 1;
-
-        slides[state.currentSlide].classList.add('active');
-        dots[state.currentSlide].classList.add('active');
-
-        setTimeout(() => {
-            state.isAnimating = false;
-        }, TRANSITION_DURATION);
-    } catch (error) {
-        handleError(error, 'showSlides');
-    }
-};
-
-const startSlideInterval = () => {
-    try {
-        return setInterval(() => {
-            showSlides(state.currentSlide + 1);
-        }, SLIDE_DURATION);
-    } catch (error) {
-        handleError(error, 'startSlideInterval');
+        handleError(error, 'slideshow initialization');
     }
 };
 
 // Touch and swipe handling
-const handleSwipe = () => {
-    try {
-        const swipeDistance = state.touchEndX - state.touchStartX;
-        
-        if (Math.abs(swipeDistance) > SWIPE_THRESHOLD) {
-            if (swipeDistance > 0) {
-                showSlides(state.currentSlide - 1);
-            } else {
-                showSlides(state.currentSlide + 1);
-            }
-        }
-    } catch (error) {
-        handleError(error, 'handleSwipe');
-    }
-};
+const initTouchHandling = () => {
+    if (!elements.slideshow) return;
 
-// Event Listeners
-const initEventListeners = () => {
     try {
-        const slideshow = document.querySelector('.slideshow');
-        if (!slideshow) return;
-
-        // Touch events
-        slideshow.addEventListener('touchstart', (e) => {
+        elements.slideshow.addEventListener('touchstart', (e) => {
             state.touchStartX = e.touches[0].clientX;
         });
 
-        slideshow.addEventListener('touchend', (e) => {
+        elements.slideshow.addEventListener('touchend', (e) => {
             state.touchEndX = e.changedTouches[0].clientX;
             handleSwipe();
         });
+    } catch (error) {
+        handleError(error, 'touch handling initialization');
+    }
+};
 
-        // Keyboard navigation
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft') {
-                showSlides(state.currentSlide - 1);
-            } else if (e.key === 'ArrowRight') {
-                showSlides(state.currentSlide + 1);
-            }
-        });
+const handleSwipe = () => {
+    const diff = state.touchStartX - state.touchEndX;
+    if (Math.abs(diff) > TOUCH_THRESHOLD) {
+        if (diff > 0) {
+            // Swipe left
+            const next = (state.currentSlide + 1) % elements.slides.length;
+            showSlide(next);
+        } else {
+            // Swipe right
+            const prev = (state.currentSlide - 1 + elements.slides.length) % elements.slides.length;
+            showSlide(prev);
+        }
+    }
+};
 
-        // Mobile menu
-        const menuToggle = document.querySelector('.nav-toggle');
-        const nav = document.querySelector('nav');
-        
-        if (menuToggle && nav) {
-            menuToggle.addEventListener('change', () => {
-                nav.classList.toggle('active');
+// Event listeners
+const initEventListeners = () => {
+    try {
+        // Mobile menu toggle
+        if (elements.navToggle) {
+            elements.navToggle.addEventListener('change', () => {
+                state.isMenuOpen = elements.navToggle.checked;
+                elements.navMenu.classList.toggle('active', state.isMenuOpen);
+                document.body.style.overflow = state.isMenuOpen ? 'hidden' : '';
             });
         }
+
+        // Close menu on link click
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (state.isMenuOpen) {
+                    elements.navToggle.checked = false;
+                    state.isMenuOpen = false;
+                    elements.navMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+
+        // Form submission
+        if (elements.contactForm) {
+            elements.contactForm.addEventListener('submit', handleFormSubmit);
+        }
     } catch (error) {
-        handleError(error, 'initEventListeners');
+        handleError(error, 'event listeners initialization');
     }
 };
 
 // Dark mode handling
 const initDarkMode = () => {
     try {
-        // Add transition class to body
-        document.body.classList.add('theme-transition');
-
-        // Listen for system dark mode changes
-        const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
         
         const handleDarkModeChange = (e) => {
             state.darkMode = e.matches;
@@ -202,43 +191,103 @@ const initDarkMode = () => {
             // Update meta theme-color
             const metaThemeColor = document.querySelector('meta[name="theme-color"]');
             if (metaThemeColor) {
-                metaThemeColor.setAttribute('content', e.matches ? '#1a120b' : '#ffffff');
+                metaThemeColor.setAttribute('content', e.matches ? '#1a120b' : '#ff6200');
             }
         };
 
         // Initial setup
-        handleDarkModeChange(darkModeMediaQuery);
+        handleDarkModeChange(mediaQuery);
 
-        // Add listener for changes
-        if (darkModeMediaQuery.addEventListener) {
-            darkModeMediaQuery.addEventListener('change', handleDarkModeChange);
+        // Listen for changes
+        if (mediaQuery.addEventListener) {
+            mediaQuery.addEventListener('change', handleDarkModeChange);
         } else {
             // For older browsers
-            darkModeMediaQuery.addListener(handleDarkModeChange);
+            mediaQuery.addListener(handleDarkModeChange);
         }
     } catch (error) {
-        handleError(error, 'initDarkMode');
+        handleError(error, 'dark mode initialization');
+    }
+};
+
+// Form handling
+const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    
+    try {
+        const form = e.target;
+        const submitButton = form.querySelector('button[type="submit"]');
+        const originalButtonText = submitButton.textContent;
+        
+        // Show loading state
+        submitButton.disabled = true;
+        submitButton.textContent = 'Sending...';
+        
+        // Collect form data
+        const formData = {
+            name: form.querySelector('#name').value,
+            email: form.querySelector('#email').value,
+            subject: form.querySelector('#subject').value,
+            message: form.querySelector('#message').value
+        };
+
+        // Send email using EmailJS
+        await emailjs.send('service_ujz4617', 'template_qhsiqy9', formData);
+        
+        // Show success message
+        showFormMessage('Your message has been sent successfully!', 'success');
+        
+        // Reset form
+        form.reset();
+    } catch (error) {
+        handleError(error, 'form submission');
+        showFormMessage('Failed to send message. Please try again.', 'error');
+    } finally {
+        // Reset button state
+        submitButton.disabled = false;
+        submitButton.textContent = originalButtonText;
+    }
+};
+
+const showFormMessage = (message, type) => {
+    try {
+        let messageElement = elements.formMessage;
+        if (!messageElement) {
+            messageElement = document.createElement('div');
+            messageElement.id = 'form-message';
+            elements.contactForm.appendChild(messageElement);
+        }
+        
+        messageElement.textContent = message;
+        messageElement.className = `form-message ${type}`;
+        messageElement.style.display = 'block';
+        
+        // Hide message after 3 seconds
+        setTimeout(() => {
+            messageElement.style.display = 'none';
+        }, 3000);
+    } catch (error) {
+        handleError(error, 'form message display');
     }
 };
 
 // Initialize everything
 const init = () => {
     try {
-        const slides = document.querySelectorAll('.slide');
-        if (slides.length) {
-            createDots(slides);
-            showSlides(0);
-            startSlideInterval();
-        }
+        // Add theme transition class after initial load
+        setTimeout(() => {
+            document.body.classList.add('theme-transition');
+        }, ANIMATION_DELAY);
 
-        initScrollAnimations();
-        initHeaderScroll();
+        initHeaderEffects();
+        initSlideshow();
+        initTouchHandling();
         initEventListeners();
         initDarkMode();
     } catch (error) {
-        handleError(error, 'init');
+        handleError(error, 'initialization');
     }
 };
 
-// Start when DOM is ready
+// Start the application
 document.addEventListener('DOMContentLoaded', init);

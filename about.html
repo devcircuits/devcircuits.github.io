@@ -3,31 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="description" content="About DevCircuit - Our Mission, Vision, and Values">
+    <meta name="description" content="Learn about DEVCircuit - Our mission, vision, and commitment to innovation in hardware solutions">
     <meta name="theme-color" content="#ff6200">
-    <title>About Us - DevCircuit</title>
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="About DEVCircuit - Our Story">
+    <meta property="og:description" content="Discover our journey, mission, and commitment to innovation in hardware solutions">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://DEVCircuit.in/about">
+    <meta property="og:image" content="https://DEVCircuit.in/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@DEVCircuit">
+    <title>About DEVCircuit - Our Story</title>
+    
+    <!-- Resource Hints -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="design-system.css" as="style">
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="script.js" as="script">
+    
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="design-system.css">
     <link rel="stylesheet" href="styles.css?v=1">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="favicon.png">
 </head>
 <body>
-    <div class="watermark">
-        <img src="logo.png" alt="DevCircuit Watermark" class="watermark-img">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <div class="watermark" role="presentation" aria-hidden="true">
+        <img src="logo.png" alt="" class="watermark-img" loading="lazy">
     </div>
 
-    <header class="container">
+    <header class="container" role="banner">
         <div class="logo">
-            <img src="logo.png" alt="DevCircuit Logo">
+            <a href="/" aria-label="DEVCircuit Home">
+                <img src="logo.png" alt="DEVCircuit Logo" width="150" height="50" loading="eager">
+            </a>
         </div>
-        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation menu">
         <label for="nav-toggle" class="nav-toggle-label">
             <span></span>
         </label>
-        <nav>
+        <nav role="navigation" aria-label="Main navigation">
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html" class="active">About Us</a></li>
+                <li><a href="about.html" class="active" aria-current="page">About Us</a></li>
                 <li><a href="solutions.html">Solutions</a></li>
                 <li><a href="leadership.html">Leadership</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
@@ -35,36 +56,117 @@
         </nav>
     </header>
 
-    <main class="container">
-        <section class="about-section">
-            <div class="card">
-                <h1>About DevCircuit</h1>
-                <p class="lead">At DevCircuit, we are architects of innovation, dedicated to shaping the future of connected technologies. Founded with a passion for engineering excellence, our mission is to empower businesses and communities with cutting-edge IoT, edge computing, and embedded systems solutions.</p>
-                <p>Headquartered in India, we combine global expertise with local insight, delivering transformative hardware and software that redefine industries.</p>
+    <main id="main-content" class="container" role="main">
+        <section class="about-hero" aria-labelledby="about-heading">
+            <div class="card hero-card">
+                <h1 id="about-heading">Our Story</h1>
+                <p>Pioneering innovation in hardware solutions since 2020</p>
             </div>
+        </section>
 
+        <section class="mission-vision" aria-labelledby="mission-heading">
             <div class="grid grid-cols-2">
-                <div class="card">
-                    <h2>Our Expertise</h2>
-                    <p>Our team of seasoned engineers, designers, and innovators specializes in creating custom circuits, firmware, and applications that drive efficiency, sustainability, and scalability. From smart cities to precision agriculture, we partner with clients to turn ambitious ideas into reality, leveraging platforms like ESP32, ARM, and Shakti V (RISC-V).</p>
-                </div>
-                <div class="card">
-                    <h2>Our Commitment</h2>
-                    <p>With a commitment to open-source innovation and rigorous quality standards, we ensure every solution is future-proof and impactful. At the heart of DevCircuit lies a vision to democratize technology, making advanced systems accessible to businesses of all sizes.</p>
-                </div>
+                <article class="card mission-card">
+                    <h2 id="mission-heading">Our Mission</h2>
+                    <p>To empower businesses with cutting-edge hardware solutions that drive innovation and growth.</p>
+                    <ul>
+                        <li>Deliver exceptional quality</li>
+                        <li>Foster innovation</li>
+                        <li>Build lasting partnerships</li>
+                    </ul>
+                </article>
+                <article class="card vision-card">
+                    <h2>Our Vision</h2>
+                    <p>To be the global leader in innovative hardware solutions, transforming industries through technology.</p>
+                    <ul>
+                        <li>Global leadership</li>
+                        <li>Industry transformation</li>
+                        <li>Sustainable growth</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section class="values-section" aria-labelledby="values-heading">
+            <div class="card">
+                <h2 id="values-heading">Our Core Values</h2>
+                <p>Guiding principles that shape our work and relationships</p>
             </div>
 
+            <div class="grid grid-cols-3">
+                <article class="card value-card">
+                    <div class="value-icon">
+                        <img src="assets/icons/innovation-icon.png" alt="" loading="lazy">
+                    </div>
+                    <h3>Innovation</h3>
+                    <p>Constantly pushing boundaries to create better solutions</p>
+                </article>
+                <article class="card value-card">
+                    <div class="value-icon">
+                        <img src="assets/icons/quality-icon.png" alt="" loading="lazy">
+                    </div>
+                    <h3>Quality</h3>
+                    <p>Uncompromising commitment to excellence in everything we do</p>
+                </article>
+                <article class="card value-card">
+                    <div class="value-icon">
+                        <img src="assets/icons/integrity-icon.png" alt="" loading="lazy">
+                    </div>
+                    <h3>Integrity</h3>
+                    <p>Honest and ethical business practices at all times</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="journey-section" aria-labelledby="journey-heading">
             <div class="card">
-                <h2>Our Vision</h2>
-                <p>Whether you're a startup pioneering a new IoT device or an enterprise optimizing industrial processes, we provide end-to-end support, from concept to production. Join us in building a smarter, more connected world—let's circuit the future together.</p>
+                <h2 id="journey-heading">Our Journey</h2>
+                <p>Milestones that define our growth and success</p>
+            </div>
+
+            <div class="timeline">
+                <article class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2020</h3>
+                        <p>Founded with a vision to revolutionize hardware solutions</p>
+                    </div>
+                </article>
+                <article class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2021</h3>
+                        <p>Expanded services to include IoT solutions</p>
+                    </div>
+                </article>
+                <article class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2022</h3>
+                        <p>Launched innovative PCB development services</p>
+                    </div>
+                </article>
+                <article class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2023</h3>
+                        <p>Established global partnerships and expanded operations</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="cta-section" aria-labelledby="cta-heading">
+            <div class="card cta-card">
+                <h2 id="cta-heading">Join Our Journey</h2>
+                <p>Be part of our mission to transform industries through innovation</p>
+                <a href="contact.html" class="btn btn-primary">Get in Touch</a>
             </div>
         </section>
     </main>
 
-    <footer>
+    <footer role="contentinfo">
         <div class="container">
             <p>© 2025 DEVCircuit.in. All rights reserved.</p>
         </div>
     </footer>
+
+    <script src="script.js" defer></script>
 </body>
 </html>
