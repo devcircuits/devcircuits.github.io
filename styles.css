@@ -14,15 +14,17 @@
 
 .dark-mode .content {
     background-color: var(--dark-surface);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .dark-mode .solution-card {
     background-color: var(--dark-surface-hover);
+    border: 1px solid var(--dark-surface);
 }
 
 .dark-mode .contact-form {
     background-color: var(--dark-surface);
+    border: 1px solid var(--dark-surface-hover);
 }
 
 .dark-mode .form-group input,
@@ -35,7 +37,7 @@
 .dark-mode .form-group input:focus,
 .dark-mode .form-group textarea:focus {
     border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(255, 98, 0, 0.2);
+    box-shadow: 0 0 0 3px rgba(255, 140, 66, 0.2);
 }
 
 .dark-mode .form-group label {
@@ -45,6 +47,67 @@
 .dark-mode #form-message {
     background-color: var(--dark-surface-hover);
     color: var(--dark-text-primary);
+}
+
+.dark-mode .service-card {
+    background-color: var(--dark-surface);
+    border: 1px solid var(--dark-surface-hover);
+}
+
+.dark-mode .feature-card {
+    background-color: var(--dark-surface);
+    border: 1px solid var(--dark-surface-hover);
+}
+
+.dark-mode .hero-section::before {
+    background: linear-gradient(135deg, rgba(255, 140, 66, 0.1) 0%, rgba(255, 179, 102, 0.1) 100%);
+}
+
+.dark-mode .cta-section {
+    background: var(--primary-gradient);
+}
+
+.dark-mode .cta-card {
+    background: var(--dark-surface);
+}
+
+.dark-mode .cta-card h2 {
+    color: var(--dark-text-primary);
+}
+
+.dark-mode .cta-card p {
+    color: var(--dark-text-secondary);
+}
+
+.dark-mode .cta-card .btn {
+    background: var(--primary);
+    color: var(--dark-text-primary);
+}
+
+.dark-mode .cta-card .btn:hover {
+    background: var(--primary-dark);
+}
+
+/* Skip to Main Content */
+.skip-to-main {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--primary);
+    color: white;
+    padding: 8px 16px;
+    z-index: var(--z-50);
+    transition: top var(--transition-normal);
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+}
+
+.skip-to-main:focus {
+    top: 0;
+    outline: 3px solid var(--primary-light);
+    outline-offset: 2px;
 }
 
 * {
@@ -629,7 +692,7 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(255, 98, 0, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
+    background: linear-gradient(135deg, rgba(255, 140, 66, 0.1) 0%, rgba(255, 179, 102, 0.1) 100%);
     z-index: -1;
 }
 
