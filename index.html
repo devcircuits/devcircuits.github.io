@@ -5,28 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="description" content="DevCircuit - Innovative Solutions for Circuit Design, PCB Development, and IoT Solutions">
     <meta name="theme-color" content="#ff6200">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="DevCircuit - Innovative Solutions">
+    <meta property="og:description" content="Transforming ideas into reality through cutting-edge circuit design, PCB development, and IoT solutions.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://devcircuit.in">
+    <meta name="twitter:card" content="summary_large_image">
     <title>DevCircuit - Innovative Solutions</title>
+    
+    <!-- Resource Hints -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="design-system.css" as="style">
+    <link rel="preload" href="styles.css" as="style">
+    
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="design-system.css">
     <link rel="stylesheet" href="styles.css?v=1">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="favicon.png">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "DevCircuit",
+        "url": "https://devcircuit.in",
+        "description": "Innovative Solutions for Circuit Design, PCB Development, and IoT Solutions",
+        "logo": "https://devcircuit.in/logo.png"
+    }
+    </script>
 </head>
 <body>
-    <div class="watermark">
-        <img src="logo.png" alt="DevCircuit Watermark" class="watermark-img">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <div class="watermark" role="presentation">
+        <img src="logo.png" alt="DevCircuit Watermark" class="watermark-img" loading="lazy">
     </div>
 
-    <header class="container">
+    <header class="container" role="banner">
         <div class="logo">
-            <img src="logo.png" alt="DevCircuit Logo">
+            <img src="logo.png" alt="DevCircuit Logo" width="150" height="50">
         </div>
-        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation menu">
         <label for="nav-toggle" class="nav-toggle-label">
             <span></span>
         </label>
-        <nav>
+        <nav role="navigation" aria-label="Main navigation">
             <ul>
-                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="index.html" class="active" aria-current="page">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="solutions.html">Solutions</a></li>
                 <li><a href="leadership.html">Leadership</a></li>
@@ -35,7 +63,7 @@
         </nav>
     </header>
 
-    <main class="container">
+    <main id="main-content" class="container" role="main">
         <section class="hero-section">
             <div class="card hero-card">
                 <h1>Innovative Hardware Solutions</h1>
@@ -128,12 +156,12 @@
         </section>
     </main>
 
-    <footer>
+    <footer role="contentinfo">
         <div class="container">
             <p>© 2025 DevCircuit.in. All rights reserved.</p>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>
