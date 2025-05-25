@@ -9,7 +9,8 @@ const state = {
     isAnimating: false,
     touchStartX: 0,
     touchEndX: 0,
-    scrollObserver: null
+    scrollObserver: null,
+    darkMode: window.matchMedia('(prefers-color-scheme: dark)').matches
 };
 
 // DOM Elements
@@ -184,6 +185,41 @@ const initEventListeners = () => {
     }
 };
 
+// Dark mode handling
+const initDarkMode = () => {
+    try {
+        // Add transition class to body
+        document.body.classList.add('theme-transition');
+
+        // Listen for system dark mode changes
+        const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        
+        const handleDarkModeChange = (e) => {
+            state.darkMode = e.matches;
+            document.documentElement.classList.toggle('dark-mode', e.matches);
+            
+            // Update meta theme-color
+            const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+            if (metaThemeColor) {
+                metaThemeColor.setAttribute('content', e.matches ? '#0f172a' : '#ffffff');
+            }
+        };
+
+        // Initial setup
+        handleDarkModeChange(darkModeMediaQuery);
+
+        // Add listener for changes
+        if (darkModeMediaQuery.addEventListener) {
+            darkModeMediaQuery.addEventListener('change', handleDarkModeChange);
+        } else {
+            // For older browsers
+            darkModeMediaQuery.addListener(handleDarkModeChange);
+        }
+    } catch (error) {
+        handleError(error, 'initDarkMode');
+    }
+};
+
 // Initialize everything
 const init = () => {
     try {
@@ -197,6 +233,7 @@ const init = () => {
         initScrollAnimations();
         initHeaderScroll();
         initEventListeners();
+        initDarkMode();
     } catch (error) {
         handleError(error, 'init');
     }

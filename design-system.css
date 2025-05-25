@@ -108,6 +108,81 @@
         --text-secondary: var(--dark-text-secondary);
         --text-tertiary: var(--dark-text-tertiary);
     }
+
+    /* Dark Mode Specific Styles */
+    body {
+        color-scheme: dark;
+    }
+
+    .card {
+        background-color: var(--dark-surface);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -2px rgba(0, 0, 0, 0.2);
+    }
+
+    .card:hover {
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -4px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn {
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn:hover {
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .form-input {
+        background-color: var(--dark-surface);
+        border-color: var(--dark-surface-hover);
+        color: var(--dark-text-primary);
+    }
+
+    .form-input:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(255, 98, 0, 0.2);
+    }
+
+    .skeleton {
+        background: linear-gradient(90deg, 
+            var(--dark-surface-hover) 25%, 
+            var(--dark-surface) 50%, 
+            var(--dark-surface-hover) 75%
+        );
+    }
+
+    /* Dark Mode Scrollbar */
+    ::-webkit-scrollbar-track {
+        background: var(--dark-background);
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: var(--primary);
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--primary-dark);
+    }
+
+    /* Dark Mode Watermark */
+    .watermark {
+        opacity: 0.05;
+    }
+
+    /* Dark Mode Navigation */
+    nav a {
+        color: var(--dark-text-primary);
+    }
+
+    nav a:hover {
+        color: var(--primary);
+        background-color: var(--dark-surface-hover);
+    }
+
+    /* Dark Mode Header */
+    header.scrolled {
+        background-color: rgba(30, 41, 59, 0.95);
+        backdrop-filter: blur(8px);
+    }
 }
 
 /* Base Styles */

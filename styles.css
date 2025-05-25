@@ -1,3 +1,52 @@
+/* Theme Transitions */
+.theme-transition,
+.theme-transition *,
+.theme-transition *:before,
+.theme-transition *:after {
+    transition: all 0.3s ease-in-out !important;
+    transition-delay: 0 !important;
+}
+
+/* Dark Mode Specific Styles */
+.dark-mode {
+    color-scheme: dark;
+}
+
+.dark-mode .content {
+    background-color: var(--dark-surface);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .solution-card {
+    background-color: var(--dark-surface-hover);
+}
+
+.dark-mode .contact-form {
+    background-color: var(--dark-surface);
+}
+
+.dark-mode .form-group input,
+.dark-mode .form-group textarea {
+    background-color: var(--dark-surface);
+    border-color: var(--dark-surface-hover);
+    color: var(--dark-text-primary);
+}
+
+.dark-mode .form-group input:focus,
+.dark-mode .form-group textarea:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(255, 98, 0, 0.2);
+}
+
+.dark-mode .form-group label {
+    color: var(--dark-text-primary);
+}
+
+.dark-mode #form-message {
+    background-color: var(--dark-surface-hover);
+    color: var(--dark-text-primary);
+}
+
 * {
     margin: 0;
     padding: 0;
